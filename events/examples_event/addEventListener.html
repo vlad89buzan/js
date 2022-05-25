@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 4 - Несколько обработчиков</title>
+</head>
+
+<body>
+  
+  <button class="btn">Кнопка</button>
+
+  <script>
+    function addText1(){
+      alert('text__1')
+    }
+    function addText2(){
+      alert('text__2')
+    }
+    function addText3(){
+      alert('text__3')
+    }
+    document.querySelector('.btn').onclick = addText1;
+    document.querySelector('.btn').addEventListener('click',addText2)
+    document.querySelector('.btn').addEventListener('click',addText3)
+
+  </script>
+</body>
+
+</html>

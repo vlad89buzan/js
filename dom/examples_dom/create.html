@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 12</title>
+</head>
+<body>
+  <p>Разделитель</p>
+  <hr>
+  <script>
+let div = document.createElement('div')
+div.className = 'alert'
+div.innerHTML = 'ppppppp'
+// div.innerHTML = `<p>alert</p>`
+// document.body.append(div)
+// document.body.prepend(div)
+// document.body.before(div)
+document.querySelector('hr').before(div)
+
+
+let p =document.createElement('p')
+p.textContent = 'alert2!';
+div.append(p, document.createElement('hr'))
+
+div.replaceWith(p)
+
+  </script>
+</body>
+</html>

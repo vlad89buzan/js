@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 31 - Генератор названий</title>
+</head>
+
+<body>
+
+  <script>
+    let words1 = ["Непобедимый", "Визжащий", "Реальный", "Скоростной", "Экцентричный", "Кодовый", "Прожорливый", "Догадливый", "Гениальный", "Разрушительный", "Растерянный", "Торопливый", "Вопрошающий", "Космический", "Динамичный", "Паникующий", "Задумчивый", "Загадочный", "Рекордный", "Непонимающий", "Ультрафиолетовый", "Читающий", "Озорной", "Тормозной", "Волшебный", "Хардовый", "Тычущий", "Внимательный", "Криповый",];
+    let words2 = ["Мозг", "Везунчик", "Повелитель", "Красавчик", "Печенька", "Тормоз", "Динозавр", "Индеец", "Экстрасенс", "Цыпленок", "Решала", "Ураган", "Взломщик", "Эрудит", "Сыщик", "Крушитель", "Паникер", "Шутник", "Обуза", "Капитан", "Ботаник", "Гриб", "Зомби", "Котик", "Ведьмак", "Храбрец", "Мастер", "Король",];
+
+    function randomName(arr1,arr2){
+      let result = []
+      for (let index = 0; index < arr1.length; index++) {
+        for (let i = 0; i < arr1.length; i++){
+          result.push(`${arr1[index]} ${arr2[i]}`)
+        }
+        
+      }
+      return result
+    }
+
+    let name = randomName(words1,words2)
+    // for(let i=0;i<name.length;i++){
+    //   let item = document.createElement('div')
+    //   item.classList.add('menu_link')
+    //   item.textContent = name[i]
+    //   document.body.append(item)
+    // }
+    
+      let item = document.createElement('div')
+      item.classList.add('menu_link')
+    
+    setInterval(()=>{
+      item.textContent = name[Math.floor(Math.random()* name.length)]
+      document.body.append(item)
+    },2000)
+    
+    
+  </script>
+</body>
+
+</html>
