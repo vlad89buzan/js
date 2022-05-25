@@ -12,6 +12,16 @@
   <a href="https://www.google.com/">На Google</a>
 
   <script>
+    document.body.onclick = function(e){
+      function handlerLink(href){
+        let isLeaving = confirm(`pereiti na ${href}?`)
+        if(!isLeaving) return false
+      }
+      let target = e.target.closest('a')
+      if(target && document.body.contains(target)){
+        return handlerLink(target.getAttribute('href'))
+      }
+    }
    
   </script>
 </body>
