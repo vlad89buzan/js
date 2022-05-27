@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css" id="theme">
+  <title>Пример 29 - Сочетание клавиш</title>
+</head>
+
+<body>
+
+  <script>
+    function hotKeys(func, ...codes){
+      let pressed = new Set();
+      document.addEventListener('keydown',function(e){
+        pressed.add(e.code);
+        for(let code of codes){
+          if(!pressed.has(code)){
+            return
+          }
+        }
+        pressed.clear();
+        func()
+      })
+      document.addEventListener('keyup',function(e){
+        pressed.delete(e.code)
+      })
+    }
+
+    hotKeys(function(){
+      console.log('f+g')
+    }, 'KeyF','KeyG')
+    
+  </script>
+</body>
+
+</html>

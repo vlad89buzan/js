@@ -5,19 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css" id="theme">
-  <title>Пример 31 - Фокусировка</title>
+  <title>Пример 35 - Событие Submit</title>
 </head>
 
 <body>
-
-  <form id="form">
-    <input name="mail" type="email">
+  
+  <form class="form">
     <input type="text">
+    <input type="submit" value="Кнопка Submit">
+    <input type="image" value="Кнопка Image">
   </form>
-  <div id="error"></div>
+  
 
   <script>
-    
+    let form = document.forms[0]
+    form.onsubmit = function(e){
+      e.preventDefault()
+    }
   </script>
 </body>
 

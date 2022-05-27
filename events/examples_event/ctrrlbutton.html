@@ -11,6 +11,15 @@
 <body>
   <button>Кнопка</button>
   <script>
+    document.querySelector('button').onclick = function(e){
+      if(e.altKey && e.shiftKey){
+        console.log('alt+shift+klick')
+      }
+      if((e.ctrlKey && e.shiftKey)|| (e.metaKey && e.shiftKey)){
+        console.log('ctrl+shift+klick')
+        console.log('cmd+shift+klick')
+      }
+    }
     
   </script>
 </body>

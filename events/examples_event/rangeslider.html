@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css" id="theme">
+  <title>Пример 27 - Слайдер (Range)</title>
+</head>
+
+<body style="background-color: #333; margin: 25px;">
+
+  <div id="slider" class="slider">
+    <div class="slider__btn"></div>
+  </div>
+
+  <script>
+    let btn = slider.querySelector('.slider__btn');
+    btn.onmousedown = function (e) {
+      e.preventDefault();
+      
+      let shiftX = e.clientX - btn.getBoundingClientRect().left;
+      console.log(e.clientX)
+      console.log(btn.getBoundingClientRect().left)
+
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      function onMouseMove(e) {
+        let newLeft = e.clientX - shiftX - slider.getBoundingClientRect().left;
+        if (newLeft < 0) newLeft = 0;
+        let rightEdge = slider.offsetWidth - btn.offsetWidth;
+        if (newLeft > rightEdge) newLeft = rightEdge;
+
+        btn.style.left = newLeft + 'px';
+      }
+      function onMouseUp() {
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      }
+      btn.ondragstart = function () {
+        return false
+      }
+    };
+
+
+  </script>
+</body>
+
+</html>

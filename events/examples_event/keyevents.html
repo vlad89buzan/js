@@ -11,7 +11,15 @@
 <body>
 
   <script>
-    
+    // document.addEventListener('keyup',function(e){
+    //   console.log('kod' + e.code)
+    //   console.log('simvol' + e.key)
+    // })
+    document.addEventListener('keydown',function(e){
+      if(e.code == 'KeyZ' && (e.ctrlKey || e.metaKey)){
+        console.log('ctrlz')
+      }
+    })
   </script>
 </body>
 

@@ -27,13 +27,29 @@
     </select>
     <select name="mySelect2" multiple>
       <option value="item4" selected>Элемент 1</option>
-      <option value="item5">Элемент 2</option>
+      <option value="item5" selected>Элемент 2</option>
       <option value="item6">Элемент 3</option>
     </select>
   </form>
 
   <script>
-    
+    let form = document.forms.form1
+    let radioBtns = form.elements.radioBtn
+    console.log(radioBtns[0].checked)
+    console.log(radioBtns[0].value)
+    let fieldSet = form.elements.myFieldset
+    let select = form.elements.mySelect
+    console.log(select.options[0].selected)
+    console.log(select.selectedIndex)
+    console.log(select.value)
+    let select2 = form.elements.mySelect2
+    let selected = Array.from(select2.options)
+    .filter(option => option.selected)
+    .map(option =>option.value)
+    console.log(selected)
+
+    let newOpt = new Option('el 4','item7', true)
+    select2.append(newOpt)
   </script>
 </body>
 
