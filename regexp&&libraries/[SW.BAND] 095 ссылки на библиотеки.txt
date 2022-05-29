@@ -1,0 +1,18 @@
+1. Поиск и сортировка обычных списков.
+https://listjs.com/
+2. Всплывающие модальные окна с иконками.
+https://sweetalert2.github.io/
+3. Всплывающие текстовые подсказки.
+https://popper.js.org/
+4. Галерея изображений
+https://feimosi.github.io/baguetteBox.js/
+5. Галерея изображений
+https://sachinchoolur.github.io/lightgallery.js/
+6. Календарь
+https://flatpickr.js.org/examples/
+7. Валидация форм
+https://nosir.github.io/cleave.js/
+8. Фильтрация элементов
+https://www.kunkalabs.com/mixitup/docs/mixitup-factory/
+9. Слайдер изображений
+https://swiperjs.com/

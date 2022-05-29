@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 6 - Регулярные выражения</title>
+</head>
+
+<body>
+
+  <script>
+    // let regexp = new RegExp("",)
+    // let rexexp2 = /template/flags
+
+    // let tag = prompt('enter html tag', 'h2')
+    // let regexp = new RegExp(`<${tag}>`)
+    // console.log(regexp)
+
+   // flags i g  m s u y
+
+let string = 'String, one more string'
+console.log(string.match(/string/gi))
+console.log(string.replace(/string/gi,'new string'))
+console.log(string.replace(/string/gi,'$&1'))
+console.log(/string/gi.test(string))
+  </script>
+</body>
+
+</html>
