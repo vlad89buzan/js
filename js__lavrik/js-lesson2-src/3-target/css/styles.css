@@ -1,0 +1,11 @@
+html, body{
+    margin: 0;
+}
+
+.item{
+    margin: 10px;
+}
+
+.hidden{
+    display: none;
+}

@@ -1,0 +1,61 @@
+html, body{
+    margin: 0;
+    background: #eee;
+}
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    color: #fff;
+    height: 50px;
+    width: 100%;
+}
+
+.menu a{
+    color: inherit;
+    line-height: 50px;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: color 0.4s;
+}
+
+.menu .menu__link-active{
+    color: #ff0;
+}
+
+.content{
+   margin-top: 70px;
+}
+
+.toTop{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    border-style: none;
+    background-color: green;
+    color: white;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease ;
+   
+    
+}
+.toTop.active{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s ease visibility 1s ease ;
+}
+.toTop:active{
+    transform: scale(0.95);
+    
+}
