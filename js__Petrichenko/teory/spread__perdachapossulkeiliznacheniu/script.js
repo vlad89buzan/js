@@ -57,7 +57,7 @@ newArr[1] = "dddddddddddd";
 console.log(newArr);
 console.log(oldArr);
 
-// 4 spread operator ravorota
+// 4 spread operator razvorota
 const video = ["youtube", "vimeo"],
       blogs = ["wordpress", "livejournal", "blogger"],
       internet = [...video, ...blogs, "vk", "facebook"];
