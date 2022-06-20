@@ -59,9 +59,10 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   function declension(forms, val) {
-    const cases = [ 2, 0, 1, 1, 1, 2 ];
-    return forms[(val % 100 > 4 && val % 100 < 20) ?
-       2 : cases[(val % 10 < 5) ? val % 10 : 5]];
+    const cases = [2, 0, 1, 1, 1, 2];
+    return forms[
+      val % 100 > 4 && val % 100 < 20 ? 2 : cases[val % 10 < 5 ? val % 10 : 5]
+    ];
   }
 
   function setClock(selector, endtime) {
@@ -84,15 +85,19 @@ window.addEventListener("DOMContentLoaded", () => {
       hours.innerHTML = getZero(t.hours);
       minutes.innerHTML = getZero(t.minutes);
       seconds.innerHTML = getZero(t.seconds);
-      daysText.innerHTML = declension([ 'день', 'дня', 'дней' ],
-       days.innerHTML);
-      hoursText.innerHTML = declension([ 'час', 'часа', 'часов' ],
-       hours.innerHTML);
-      minutesText.innerHTML = declension([ 'минута', 'минуты', 'минут' ],
-       minutes.innerHTML);
-      secondsText.innerHTML = declension([ 'секунда', 'секунды', 'секунд' ],
-       seconds.innerHTML);
-      
+      daysText.innerHTML = declension(["день", "дня", "дней"], days.innerHTML);
+      hoursText.innerHTML = declension(
+        ["час", "часа", "часов"],
+        hours.innerHTML
+      );
+      minutesText.innerHTML = declension(
+        ["минута", "минуты", "минут"],
+        minutes.innerHTML
+      );
+      secondsText.innerHTML = declension(
+        ["секунда", "секунды", "секунд"],
+        seconds.innerHTML
+      );
 
       if (t.total <= 0) {
         clearInterval(timeInterval);
@@ -100,4 +105,57 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   setClock(".timer", deadline);
+
+  //modal
+  const modalTrigger = document.querySelectorAll("[data-modal]");
+  const modal = document.querySelector(".modal");
+  const modalCloseBtn = document.querySelector("[data-close]");
+
+  function openModal() {
+    modal.classList.add("show");
+    modal.classList.remove("hide");
+    document.body.style.overflowY = "hidden";
+    clearInterval(modalTimerId);
+  }
+  function closeModal() {
+    modal.classList.add("hide");
+    modal.classList.remove("show");
+    document.body.style.overflowY = "";
+  }
+  modalTrigger.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      openModal();
+    });
+  });
+  modalCloseBtn.addEventListener("click", () => {
+    closeModal();
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Escape" && modal.classList.contains("show")) {
+      closeModal();
+    }
+  });
+
+  const modalTimerId = setTimeout(openModal, 5000);
+
+  function showModalByScroll(){
+    if (
+      window.scrollY + document.documentElement.clientHeight >=
+      document.documentElement.scrollHeight
+    ) {
+      openModal();
+      window.removeEventListener("scroll", showModalByScroll);
+    }
+  }
+
+  window.addEventListener("scroll", showModalByScroll);
+
 });
+
